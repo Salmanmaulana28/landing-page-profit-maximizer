@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Layanan Premium Pertanian Cerdas membantu petani mengelola data, memantau kondisi lahan, dan memanfaatkan teknologi IoT.">
+  <title>Layanan Premium Pertanian Cerdas</title>
+  <style>
+    :root{--green:#176b45;--green2:#238657;--mint:#eaf6ef;--ink:#183328;--muted:#60736a;--line:#dce9e0;--white:#fff;--gold:#f2b84b}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fbfdfb;line-height:1.65}
+    a{color:inherit;text-decoration:none}.container{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--green);letter-spacing:-.3px}
+    .logo{width:38px;height:38px;border-radius:12px;background:var(--green);display:grid;place-items:center;color:#fff;font-size:20px}
+    .navlinks{display:flex;gap:24px;font-size:14px;color:var(--muted)}.navlinks a:hover{color:var(--green)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:10px;background:var(--green);color:white;font-weight:700;border:1px solid var(--green);transition:.2s}
+    .btn:hover{background:#105536;transform:translateY(-1px)}.btn.secondary{background:white;color:var(--green)}
+    .hero{padding:82px 0 72px;background:radial-gradient(circle at 85% 20%,#dff2e5 0,transparent 30%),linear-gradient(135deg,#f3faf5,#fff 65%)}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:55px}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;background:#e5f4e9;color:var(--green);font-size:12px;font-weight:800;padding:7px 12px;border-radius:999px;text-transform:uppercase;letter-spacing:1px}
+    h1{font-size:clamp(38px,5vw,60px);line-height:1.08;letter-spacing:-2px;margin:20px 0;color:#153d2b}
+    .hero p{font-size:18px;color:var(--muted);max-width:620px;margin:0 0 28px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}.hero-note{font-size:13px;color:#728078;margin-top:18px}
+    .visual{background:linear-gradient(145deg,#1b7049,#10472f);border-radius:28px;padding:28px;color:#fff;min-height:360px;position:relative;overflow:hidden;box-shadow:0 24px 60px #174c3026}
+    .visual:before,.visual:after{content:"";position:absolute;border:1px solid #ffffff25;border-radius:50%}
+    .visual:before{width:290px;height:290px;right:-70px;top:-70px}.visual:after{width:210px;height:210px;right:-30px;top:-30px}
+    .visual-top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;font-size:13px;color:#d5eddd}
+    .leaf{font-size:48px;margin:34px 0 8px;position:relative;z-index:1}
+    .visual h3{font-size:25px;line-height:1.2;margin:0 0 8px;position:relative;z-index:1}
+    .visual p{color:#d5eddd;font-size:14px;max-width:290px;position:relative;z-index:1}
+    .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px;position:relative;z-index:1}
+    .metric{background:#ffffff18;border:1px solid #ffffff25;border-radius:14px;padding:12px}.metric b{display:block;font-size:19px}.metric span{font-size:11px;color:#d5eddd}
+    section{padding:76px 0}.section-head{text-align:center;max-width:700px;margin:0 auto 38px}
+    .kicker{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--green);font-weight:800}
+    h2{font-size:clamp(28px,3.4vw,40px);line-height:1.2;letter-spacing:-1px;margin:10px 0 12px}
+    .section-head p{color:var(--muted);margin:0}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:white;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 8px 24px #153d2b08}
+    .card-icon{width:46px;height:46px;border-radius:13px;background:var(--mint);display:grid;place-items:center;font-size:22px;margin-bottom:15px}
+    .card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px}
+    .audience{background:#f1f8f3}.audience-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
+    .audience-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .audience-item{background:white;border:1px solid var(--line);border-radius:13px;padding:16px;font-weight:650;font-size:14px}
+    .audience-item span{color:var(--green);margin-right:8px}
+    .strategy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .strategy{border:1px solid var(--line);border-radius:18px;padding:24px;background:#fff}
+    .strategy-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .letter{width:36px;height:36px;border-radius:10px;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}
+    .strategy h3{margin:0;font-size:18px}.strategy p{margin:0 0 10px;color:var(--muted);font-size:14px}
+    ul{padding-left:19px;margin:8px 0 0;color:var(--muted);font-size:14px}li{margin:5px 0}
+    .goals{background:#173f2d;color:white}.goals .kicker{color:#a9dfbb}.goals .section-head p{color:#d2e5d8}
+    .goal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .goal{border:1px solid #ffffff25;background:#ffffff0d;border-radius:15px;padding:18px;font-size:14px}
+    .goal b{display:block;color:#bce8c9;font-size:23px;margin-bottom:8px}
+    .indicators{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .indicator{padding:18px 20px;background:white;border:1px solid var(--line);border-radius:14px;font-weight:650;font-size:14px}
+    .indicator:before{content:"✓";display:inline-grid;place-items:center;width:24px;height:24px;background:var(--mint);color:var(--green);border-radius:50%;margin-right:9px}
+    .cta{padding:65px 0;background:linear-gradient(135deg,#e9f5ec,#f8fcf9)}
+    .cta-box{display:flex;align-items:center;justify-content:space-between;gap:30px;background:white;border:1px solid var(--line);border-radius:22px;padding:34px}
+    .cta h2{font-size:30px;margin:0 0 8px}.cta p{margin:0;color:var(--muted)}
+    footer{padding:28px 0;color:#718078;font-size:13px;border-top:1px solid var(--line)}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media(max-width:800px){.navlinks{display:none}.hero-grid,.audience-grid{grid-template-columns:1fr}.visual{min-height:320px}.feature-grid{grid-template-columns:1fr 1fr}.goal-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.container{width:min(100% - 28px,1120px)}nav{height:64px}.hero{padding:58px 0}.feature-grid,.strategy-grid,.audience-list,.indicators{grid-template-columns:1fr}.goal-grid{grid-template-columns:1fr 1fr}section{padding:58px 0}.cta-box{display:block;padding:25px}.cta-box .btn{margin-top:20px;width:100%}h1{letter-spacing:-1.3px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container"><nav>
+    <a class="brand" href="#"><span class="logo">🌱</span><span>Pertanian Cerdas</span></a>
+    <div class="navlinks"><a href="#layanan">Layanan</a><a href="#target">Target Pengguna</a><a href="#strategi">Strategi</a><a href="#tujuan">Tujuan</a></div>
+    <a class="btn" href="#layanan">Jelajahi Layanan</a>
+  </nav></div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">✦ Profit Maximizer</span>
+        <h1>Layanan Premium <span style="color:#238657">Pertanian Cerdas</span></h1>
+        <p>Tingkatkan pengelolaan pertanian dengan fitur premium, informasi kondisi lahan, dan dukungan pemantauan berbasis teknologi IoT.</p>
+        <div class="actions"><a class="btn" href="#layanan">Kenali Fitur Premium</a><a class="btn secondary" href="#strategi">Lihat Layanan</a></div>
+        <div class="hero-note">Solusi tambahan untuk mendukung pengelolaan data dan kegiatan pertanian.</div>
+      </div>
+      <div class="visual">
+        <div class="visual-top"><span>PERTANIAN DIGITAL</span><span>● Layanan Premium</span></div>
+        <div class="leaf">🌿</div>
+        <h3>Data lebih lengkap.<br>Pemantauan lebih terarah.</h3>
+        <p>Manfaatkan fitur tambahan untuk membantu memahami kondisi lahan dan mengelola informasi pertanian.</p>
+        <div class="metrics">
+          <div class="metric"><b>IoT</b><span>Pemantauan sensor</span></div>
+          <div class="metric"><b>Data</b><span>Riwayat pertanian</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="layanan">
+    <div class="container">
+      <div class="section-head"><div class="kicker">Tentang layanan</div><h2>Lebih banyak dukungan untuk pertanian Anda</h2><p>Layanan Premium Pertanian Cerdas merupakan layanan tambahan berbayar yang menyediakan fitur dan fasilitas lebih lengkap bagi pengguna website pendataan petani.</p></div>
+      <div class="feature-grid">
+        <article class="card"><div class="card-icon">📊</div><h3>Pengelolaan Data</h3><p>Mendukung pengelolaan data pertanian secara lebih efektif dan membantu pengguna mengakses informasi dengan lebih terarah.</p></article>
+        <article class="card"><div class="card-icon">🌦️</div><h3>Pemantauan Kondisi Lahan</h3><p>Membantu pengguna memperoleh informasi kondisi lahan secara berkala melalui perangkat sensor yang didukung.</p></article>
+        <article class="card"><div class="card-icon">📈</div><h3>Informasi Lebih Lengkap</h3><p>Menyediakan akses ke laporan, riwayat pemantauan, dan informasi pertanian tambahan sesuai fasilitas layanan.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="audience" id="target">
+    <div class="container audience-grid">
+      <div><div class="kicker">Target konsumen</div><h2>Dirancang untuk kebutuhan pengguna pertanian</h2><p style="color:var(--muted)">Layanan ini ditujukan bagi pengguna yang ingin meningkatkan pemanfaatan website pendataan petani dan teknologi pertanian digital.</p></div>
+      <div class="audience-list">
+        <div class="audience-item"><span>✓</span>Petani yang ingin mengelola data lebih lengkap</div>
+        <div class="audience-item"><span>✓</span>Petani yang membutuhkan pemantauan lahan</div>
+        <div class="audience-item"><span>✓</span>Kelompok tani yang mengelola data anggota</div>
+        <div class="audience-item"><span>✓</span>Pengguna yang membutuhkan informasi tanaman terperinci</div>
+        <div class="audience-item"><span>✓</span>Petani yang ingin memanfaatkan teknologi IoT</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategi">
+    <div class="container">
+      <div class="section-head"><div class="kicker">Strategi profit maximizer</div><h2>Empat cara menghadirkan nilai tambah</h2><p>Strategi layanan dirancang untuk meningkatkan manfaat bagi pengguna sekaligus mendukung pendapatan berkelanjutan.</p></div>
+      <div class="strategy-grid">
+        <article class="strategy"><div class="strategy-head"><div class="letter">A</div><h3>Premium Upgrade</h3></div><p>Menawarkan peningkatan dari fitur dasar ke fitur premium dengan fasilitas yang lebih lengkap.</p><b>Contoh penerapan:</b><ul><li>Pengguna memakai fitur pendataan dasar.</li><li>Website menawarkan paket premium dengan akses pemantauan dan analisis data lebih lengkap.</li></ul></article>
+        <article class="strategy"><div class="strategy-head"><div class="letter">B</div><h3>Additional Features</h3></div><p>Menawarkan fitur tambahan untuk mendukung kegiatan dan pengelolaan pertanian.</p><b>Contoh penerapan:</b><ul><li>Laporan perkembangan kondisi lahan.</li><li>Informasi dan riwayat pemantauan sensor IoT.</li><li>Penyimpanan riwayat data pertanian lebih panjang.</li></ul></article>
+        <article class="strategy"><div class="strategy-head"><div class="letter">C</div><h3>Subscription Renewal</h3></div><p>Mendorong pengguna memperpanjang layanan agar tetap dapat menikmati fasilitas premium.</p><b>Contoh penerapan:</b><ul><li>Pengingat masa berlaku layanan.</li><li>Penawaran perpanjangan langganan.</li><li>Promo khusus bagi pengguna yang memperpanjang.</li></ul></article>
+        <article class="strategy"><div class="strategy-head"><div class="letter">D</div><h3>Premium Monitoring Service</h3></div><p>Menyediakan pemantauan tambahan agar pengguna memperoleh informasi kondisi lahan yang lebih lengkap.</p><b>Contoh penerapan:</b><ul><li>Pemantauan kondisi tanah melalui sensor IoT.</li><li>Informasi suhu dan kelembapan lingkungan.</li><li>Notifikasi kondisi lahan yang perlu diperhatikan.</li><li>Laporan hasil pemantauan secara berkala.</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="goals" id="tujuan">
+    <div class="container">
+      <div class="section-head"><div class="kicker">Tujuan bisnis</div><h2>Mengembangkan layanan dan manfaat jangka panjang</h2><p>Fokus pada peningkatan nilai layanan, pengalaman pengguna, dan pemanfaatan teknologi pertanian.</p></div>
+      <div class="goal-grid">
+        <div class="goal"><b>01</b>Meningkatkan pendapatan melalui layanan premium.</div>
+        <div class="goal"><b>02</b>Memberikan nilai tambah bagi pengguna website.</div>
+        <div class="goal"><b>03</b>Meningkatkan pemanfaatan teknologi IoT.</div>
+        <div class="goal"><b>04</b>Mengembangkan kualitas fitur dan layanan website.</div>
+        <div class="goal"><b>05</b>Mendorong penggunaan layanan premium berkelanjutan.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head"><div class="kicker">Indikator keberhasilan</div><h2>Ukuran kinerja layanan</h2><p>Keberhasilan Profit Maximizer dapat dievaluasi melalui indikator berikut.</p></div>
+      <div class="indicators">
+        <div class="indicator">Jumlah pengguna yang berlangganan layanan premium</div>
+        <div class="indicator">Pendapatan dari layanan tambahan</div>
+        <div class="indicator">Jumlah pengguna fitur premium</div>
+        <div class="indicator">Tingkat perpanjangan layanan berbayar</div>
+        <div class="indicator">Tingkat penggunaan fitur pemantauan dan analisis data</div>
+        <div class="indicator">Kepuasan pengguna terhadap layanan</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container"><div class="cta-box">
+      <div><h2>Optimalkan pengelolaan pertanian Anda</h2><p>Kenali fasilitas premium yang dapat disesuaikan dengan kebutuhan pengelolaan data dan pemantauan lahan.</p></div>
+      <a class="btn" href="#layanan">Pelajari Layanan</a>
+    </div></div>
+  </section>
+</main>
+<footer><div class="container footer-row"><span>© 2026 Layanan Premium Pertanian Cerdas</span><span>Bagian dari Website Pendataan Petani Cerdas Terintegrasi IoT</span></div></footer>
+</body>
+</html>
